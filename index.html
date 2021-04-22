@@ -79,11 +79,12 @@ input[type=submit] {
 </div>
 
 <div id="message">
-  <h3>Password must contain the following:</h3>
-  <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
-  <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
-  <p id="number" class="invalid">A <b>number</b></p>
-  <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+  <h3>Нууц үг нь дараахь зүйлийг агуулсан байх ёстой:</h3>
+  <p id="letter" class="invalid">1 <b>жижиг</b> үсэг</p>
+  <p id="capital" class="invalid">1 <b>том</b> үсэг</p>
+  <p id="number" class="invalid">1 <b>тоо</b></p>
+  <p id="special character" class="invalid">1 <b>тусгай тэмдэгт</b></p>
+  <p id="length" class="invalid">Багадаа <b>10 тэмдэгт</b></p>
 </div>
         
 <script>
@@ -91,6 +92,7 @@ var myInput = document.getElementById("psw");
 var letter = document.getElementById("letter");
 var capital = document.getElementById("capital");
 var number = document.getElementById("number");
+var special character = document.getElementById("number");
 var length = document.getElementById("length");
 
 // When the user clicks on the password field, show the message box
@@ -134,9 +136,19 @@ myInput.onkeyup = function() {
     number.classList.remove("valid");
     number.classList.add("invalid");
   }
+
+   // special characters
+  var special characters = /[!@#$%^&*.,]/g;
+  if(myInput.value.match(special characters)) {  
+    number.classList.remove("invalid");
+    number.classList.add("valid");
+  } else {
+    number.classList.remove("valid");
+    number.classList.add("invalid");
+  }
   
   // Validate length
-  if(myInput.value.length >= 8) {
+  if(myInput.value.length >= 10) {
     length.classList.remove("invalid");
     length.classList.add("valid");
   } else {
