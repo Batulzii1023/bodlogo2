@@ -140,11 +140,11 @@ myInput.onkeyup = function() {
    // Validate symbols
   var symbols = /[!@#$%^&*]/g;
   if(myInput.value.match(symbols)) {  
-    number.classList.remove("invalid");
-    number.classList.add("valid");
+    symbol.classList.remove("invalid");
+    symbol.classList.add("valid");
   } else {
-    number.classList.remove("valid");
-    number.classList.add("invalid");
+    symbol.classList.remove("valid");
+    symbol.classList.add("invalid");
   }
   
   // Validate length
